@@ -24,7 +24,7 @@ Externally, we are in a transition period that is dominated by a number of techn
 - new model and OBS data **infrastructure**:
   - ESGF2 via [intake-esgf](https://github.com/esgf2-us/intake-esgf) - we have [support for it](https://github.com/ESMValGroup/ESMValCore/pull/2765) thanks to Bouwe Andela for a brilliant implementation (and yours truly, V Predoi for revieweing and stresstesting the wits out of it); there are, however, a number of functionalities still needed:
     - support for STAC nodes (e.g. CEDA)
-    - support for an integrated ``File``-object load, without physical downloads
+    - support for an integrated ``File``-object load, without physical downloads, until a data realization is needed (``.compute()``)
     - support for other catalogs via different ``intake``-typed libraries
   - new file formats are now starting to be supported:
     - [Zarr support](https://github.com/ESMValGroup/ESMValCore/pull/2785) is currently enabled, as an option in ``esmvalcore.preprocessor._io``, but we need to:
@@ -38,4 +38,14 @@ Externally, we are in a transition period that is dominated by a number of techn
       - PyActiveStorage is fully functional and is already deployed on CEDA-JASMIN, to be deployed on various other HPCs part of EU projects
       - it's optimized for full-parallel HDF5 file access via a brand new, pure-Python, **thread-safe** HDF5 reader called [Pyfive](https://github.com/NCAS-CMS/pyfive)
       - full Dask low-level integration, so "bolt-on" factor is pretty high
+- AI data:
+  - various projects (AI4PEX, AIVAL) that will or are using ESMValTool
+  - my concern is the **data infrastructure** (no comment on the quality of the data):
+    - pretty much the same as above: catalog-based access, new file types (Zarr? NetCDF4?), integrate active storage
+  - the bigger concern are the actual diagnostics
 
+#### New tools: documentation
+
+- [PyACtiveStorage](https://pyactivestorage.readthedocs.io/en/latest/)
+- [PyFive](https://pyfive.readthedocs.io/en/latest/)
+- [Ncdata](https://ncdata.readthedocs.io/en/latest/)
