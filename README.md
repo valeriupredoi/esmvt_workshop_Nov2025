@@ -23,7 +23,7 @@ Externally, we are in a transition period that is dominated by a number of techn
 
 - new model and OBS data **infrastructure**:
   - ESGF2 via [intake-esgf](https://github.com/esgf2-us/intake-esgf) - we have [support for it](https://github.com/ESMValGroup/ESMValCore/pull/2765) thanks to Bouwe Andela for a brilliant implementation (and yours truly, V Predoi for revieweing and stresstesting the wits out of it); there are, however, a number of functionalities still needed:
-    - support for STAC nodes (e.g. CEDA)
+    - test support for STAC nodes (e.g. CEDA)
     - support for an integrated ``File``-object load, without physical downloads, until a data realization is needed (``.compute()``)
     - support for other catalogs via different ``intake``-typed libraries
   - new file formats are now starting to be supported:
